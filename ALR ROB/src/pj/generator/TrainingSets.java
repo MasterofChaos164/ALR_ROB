@@ -7,10 +7,13 @@ import java.util.Vector;
 
 public class TrainingSets {
 	
+	public static final String robotFileName = "robot.png";
+	public BufferedImage robotImage;
+	public int[][] robotRGBSet;
+	
 	public static final String twoBoxesFileName = "twoBoxes.png";
 	public BufferedImage twoBoxesImage;
 	public int[][] twoBoxesRGBSet;
-	public int[][] twoBoxesSet;
 	
 	public static final String exOrFileName = "exOr.txt";
 	public String exOrSetString;
@@ -29,6 +32,7 @@ public class TrainingSets {
 	public void generate() {
 		generateSetTwoBoxes();
 		generateSetExOr();
+		generateSetRobot();
 		
 //		System.out.println("\nresult1 in RGB\n");
 //		System.out.println("Length: "+twoBoxesRGBSet.length+", Length[0]: "+twoBoxesRGBSet[0].length);
@@ -41,6 +45,11 @@ public class TrainingSets {
 //			}
 //			System.out.println();
 //		}
+	}
+	
+	public void generateSetRobot() {
+		twoBoxesImage = ImageAdapter.readImage(twoBoxesFileName);
+		twoBoxesRGBSet = ImageAdapter.getPixelsOf(twoBoxesImage);
 	}
 	
 	public void generateSetTwoBoxes() {

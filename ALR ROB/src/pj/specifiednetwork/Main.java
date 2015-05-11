@@ -8,17 +8,12 @@ import pj.ui.TwoBoxesUI;
 
 public class Main {
 	public TrainingSets trainingSets;
-	public TwoBoxesUI twoBoxesUI;
-	public RobotUI robotUI;
 	public ExOrNetwork exOrNetwork;
 	public TwoBoxesNetwork twoBoxesNetwork;
 	public RobotNetwork robotNetwork;
 	
 	public Main() {
 		trainingSets = new TrainingSets();
-		
-		twoBoxesUI = new TwoBoxesUI(this);
-		robotUI = new RobotUI(this);
 		
 		exOrNetwork = new ExOrNetwork(this);
 		twoBoxesNetwork = new TwoBoxesNetwork(this);
@@ -31,6 +26,6 @@ public class Main {
 //		main.exOrNetwork.testExOr();
 //		main.twoBoxesNetwork.trainTwoBoxes();
 //		main.twoBoxesNetwork.testTwoBoxes();
-		main.robotNetwork.trainExOr();
+		main.robotNetwork.trainRobot();
 	}
 }

@@ -5,15 +5,18 @@ import java.util.Vector;
 
 import pj.generator.ImageAdapter;
 import pj.neuralnetwork.Network;
+import pj.ui.TwoBoxesUI;
 
 public class TwoBoxesNetwork {
 	public Main main;
 	public Network net;
+	public TwoBoxesUI twoBoxesUI;
 	public int[][] twoBoxesRGB;
 	
 	public TwoBoxesNetwork(Main main) {
 		this.main = main;
 		twoBoxesRGB = main.trainingSets.twoBoxesRGBSet;
+		twoBoxesUI = new TwoBoxesUI(main);
 	}
 	
 	public void trainTwoBoxes() {
@@ -52,7 +55,7 @@ public class TwoBoxesNetwork {
 	}
 	
 	public void testTwoBoxes() {
-		BufferedImage image = main.twoBoxesUI.image;
+		BufferedImage image = twoBoxesUI.image;
 		for(int row=0;row<twoBoxesRGB.length;row++) {
 			for(int col=0;col<twoBoxesRGB[0].length;col++) {
 				Vector<Double> inputVals = new Vector<Double>();
@@ -69,6 +72,6 @@ public class TwoBoxesNetwork {
 		}
 
 		image = ImageAdapter.setRGBPixelsOf(image, twoBoxesRGB);
-		main.twoBoxesUI.repaint();
+		twoBoxesUI.repaint();
 	}
 }
