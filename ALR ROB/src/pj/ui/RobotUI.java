@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 import pj.specifiednetwork.Main;
 
-public class NNVisualisation extends JPanel {
+public class RobotUI extends JPanel{
 	public Main main;
 	public BufferedImage image;
 	public int[][] imageRGB;
@@ -17,7 +17,7 @@ public class NNVisualisation extends JPanel {
 	public int frame_height;
 	public JFrame frame;
 	
-	public NNVisualisation(Main main) {
+	public RobotUI(Main main) {
 		this.main = main;
 		this.image = main.trainingSets.twoBoxesImage;
 		this.imageRGB = main.trainingSets.twoBoxesRGBSet;

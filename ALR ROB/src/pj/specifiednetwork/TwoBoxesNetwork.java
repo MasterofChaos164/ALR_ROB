@@ -52,7 +52,7 @@ public class TwoBoxesNetwork {
 	}
 	
 	public void testTwoBoxes() {
-		BufferedImage image = main.nNVisualisation.image;
+		BufferedImage image = main.twoBoxesUI.image;
 		for(int row=0;row<twoBoxesRGB.length;row++) {
 			for(int col=0;col<twoBoxesRGB[0].length;col++) {
 				Vector<Double> inputVals = new Vector<Double>();
@@ -69,6 +69,6 @@ public class TwoBoxesNetwork {
 		}
 
 		image = ImageAdapter.setRGBPixelsOf(image, twoBoxesRGB);
-		main.nNVisualisation.repaint();
+		main.twoBoxesUI.repaint();
 	}
 }
