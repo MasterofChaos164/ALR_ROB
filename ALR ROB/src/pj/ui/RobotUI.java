@@ -1,37 +1,30 @@
 package pj.ui;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Point;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import pj.specifiednetwork.Main;
+import pj.specifiednetwork.Robot;
 
 public class RobotUI extends JPanel{
-	public Main main;
-	public BufferedImage image; // Is the background Image of the frame
-	public int[][] imageRGB;
-	public int frame_width;
-	public int frame_height;
-	public JFrame frame;
+//	private Main main;
+	private BufferedImage image; // Is the background Image of the frame
+	private int[][] imageRGB;
+	private int frame_width;
+	private int frame_height;
+	private JFrame frame;
 	
-	public Point robotLocation;
-	public double robotAngle;
-	public Dimension robotSize;
-	public Color robotColor;
+	private Robot robot;
 	
-	public Point sensorLocation;
-	public Dimension sensorSize;
-	public Color sensorColor;
-	
-	public RobotUI(Main main) {
-		this.main = main;
-		this.image = main.trainingSets.twoBoxesImage;
-		this.imageRGB = main.trainingSets.twoBoxesRGBSet;
+	public RobotUI(Main main, Robot robot) {
+//		this.main = main;
+		this.robot = robot;
+		this.image = main.trainingSets.robotPathImage;
+		this.imageRGB = main.trainingSets.robotPathRGBSet;
 		this.frame_width = this.image.getWidth();
 		this.frame_height = this.image.getHeight();
 		
@@ -47,36 +40,14 @@ public class RobotUI extends JPanel{
 				
 		this.setBackground(Color.cyan);
 		
-		initializeRobot();
-	}
-	
-	public void initializeRobot() {
-		robotLocation = new Point(20,20);
-		robotSize = new Dimension(20,20);
-		robotColor = Color.GREEN;
-		sensorLocation = new Point(robotLocation.x, robotLocation.y);
-		sensorSize = new Dimension(sensorSize.width, sensorSize.height);
-		sensorColor = Color.BLUE;
-		calculateSensorPosition(); //wuerden wir diese Methode moveSensor() nennen, waere es aus semantischer Sicht nicht so sinnvoll.
-	}
-	
-	public void calculateRobotPosition() {
-		//TODO Roboter Position Berechnung anhand des Angles
-		//sensorLocation.x = 
-		//sensorLocation.y = 
-		calculateSensorPosition();
-	}
-	
-	public void calculateSensorPosition() {
-		//TODO Sensor Position Berechnung anhand des Angles
-		//sensorLocation.x = 
-		//sensorLocation.y = 
+		robot.initializeRobot();
 	}
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		drawBackground(g);
 		drawRobot(g);
+		drawSensor(g);
 	}
 	
 	public void drawBackground(Graphics g) {
@@ -84,28 +55,12 @@ public class RobotUI extends JPanel{
 	}
 	
 	public void drawRobot(Graphics g) {
-		g.setColor(robotColor);
-		g.fillRect(robotLocation.x,robotLocation.y,robotSize.width,robotSize.height);
-		drawSensor(g);
+		g.setColor(robot.getRobotColor());
+		g.fillOval(robot.getRobotLocation().x, robot.getRobotLocation().y, robot.getRobotSize().width, robot.getRobotSize().height);
 	}
 	
 	public void drawSensor(Graphics g) {
-		g.setColor(sensorColor);
-		g.fillRect(sensorLocation.x,sensorLocation.y,sensorSize.width,sensorSize.height);
-		drawSensor(g);
-	}
-	
-	public void moveRobot() {
-		calculateRobotPosition(); // Ist vielleicht ein bisschen unnoetig, aber semantisch ganz nett (siehe auch Initialisierung)
-	}
-	
-	public void rotateRobot(int dir, int ms) {
-		switch(dir) {
-		case 0: // Drehe Rechts
-			break;
-		case 1: // Drehe Links
-			break;
-		}
-		//TODO: Berechne Angle aufgrund der Drehzeit
+		g.setColor(robot.getSensorColor());
+		g.fillRect(robot.getSensorLocation().x, robot.getSensorLocation().y, robot.getSensorSize().width, robot.getSensorSize().height);
 	}
 }

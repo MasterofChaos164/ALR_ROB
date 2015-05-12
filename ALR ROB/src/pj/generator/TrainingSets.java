@@ -1,9 +1,6 @@
 package pj.generator;
 
-import java.awt.Color;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.util.Vector;
 
 public class TrainingSets {
 	
@@ -14,6 +11,10 @@ public class TrainingSets {
 	public static final String twoBoxesFileName = "twoBoxes.png";
 	public BufferedImage twoBoxesImage;
 	public int[][] twoBoxesRGBSet;
+	
+	public static final String robotPath = "roboterweg.png";
+	public BufferedImage robotPathImage;
+	public int[][] robotPathRGBSet;
 	
 	public static final String exOrFileName = "exOr.txt";
 	public String exOrSetString;
@@ -33,6 +34,7 @@ public class TrainingSets {
 		generateSetTwoBoxes();
 		generateSetExOr();
 		generateSetRobot();
+		generateSetRobotPath();
 		
 //		System.out.println("\nresult1 in RGB\n");
 //		System.out.println("Length: "+twoBoxesRGBSet.length+", Length[0]: "+twoBoxesRGBSet[0].length);
@@ -73,6 +75,11 @@ public class TrainingSets {
 	
 	public void generateSetTwoSpirals() {
 		
+	}
+	
+	public void generateSetRobotPath() {
+		robotPathImage = ImageAdapter.readImage(robotPath);
+		robotPathRGBSet = ImageAdapter.getPixelsOf(robotPathImage);
 	}
 	
 	public void generateSetExOr() {

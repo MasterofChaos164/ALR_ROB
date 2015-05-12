@@ -9,11 +9,13 @@ import pj.ui.RobotUI;
 public class RobotNetwork {
 	public Main main;
 	public Network net;
+	private Robot robot;
 	public RobotUI robotUI;
 	
 	public RobotNetwork(Main main) {
 		this.main = main;
-		robotUI = new RobotUI(main);
+		robot = new Robot();
+		robotUI = new RobotUI(main, robot);
 	}
 	
 	public void trainRobot() {
@@ -28,10 +30,10 @@ public class RobotNetwork {
 		while(true) {
 			//TODO: Merke Zeit
 
-			robotUI.moveRobot();
+			robot.moveRobot(100);
 			//if(Roboter is ausserhalb vom Pfad)
-				robotLocation.x = main.robotNetwork.robotUI.robotLocation.x;
-				robotLocation.y = main.robotNetwork.robotUI.robotLocation.y;
+				robotLocation.x = main.robotNetwork.robot.getRobotLocation().x;
+				robotLocation.y = main.robotNetwork.robot.getRobotLocation().y;
 				Vector<Double> inputVals = new Vector<Double>();
 				
 				inputVals.add((double)robotLocation.x);
