@@ -30,7 +30,12 @@ public class RobotNetwork {
 		while(true) {
 			//TODO: Merke Zeit
 
-			robot.moveRobot(100);
+			try {
+				robot.moveRobot(100);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			//if(Roboter is ausserhalb vom Pfad)
 				robotLocation.x = main.robotNetwork.robot.getRobotLocation().x;
 				robotLocation.y = main.robotNetwork.robot.getRobotLocation().y;

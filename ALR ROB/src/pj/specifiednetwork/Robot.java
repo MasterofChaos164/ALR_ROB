@@ -23,18 +23,22 @@ public class Robot {
 		robotLocation = new Point(20,20);
 		robotColor = Color.GREEN;
 		
-		sensorSize = new Dimension(robotSize.width / 4, robotSize.height / 4);
+		sensorSize = new Dimension(6, 6);
 		sensorLocation = new Point(robotLocation.x + robotSize.width, robotLocation.y + (robotSize.height / 2) - (sensorSize.height / 2));
 		sensorColor = Color.BLUE;
 	}
 	
 	// TODO Testen
-	public void moveRobot(int ms) {
+	public void moveRobot(int ms) throws Exception{
+		
+		if (ms < 0)
+			throw new Exception("Exception: Only positive values allowed!");
+		
 		double distance = speed * (ms / 1000);
 		
 		// Verhältnis von Sensormittelpunkt und Robotermittelpunkt (-> Blickrichtung)
-		double x = sensorLocation.getX() - robotLocation.getX();
-		double y = sensorLocation.getY() - robotLocation.getY();
+		double x = (sensorLocation.getX() + (sensorSize.getWidth() / 2)) - (robotLocation.getX() + (robotSize.getWidth() / 2));
+		double y = (sensorLocation.getY() + (sensorSize.getHeight() / 2)) - (robotLocation.getY() + (robotSize.getHeight() / 2));
 		
 		// Berechnung der Entfernung vom momentanen Standpunkt in x und y Richtung
 		double proportion = x / y;
@@ -42,8 +46,8 @@ public class Robot {
 		double xLength = Math.sqrt(Math.pow(distance, 2) - Math.pow(yLength, 2));
 		
 		// Setzt Roboter und Sensor auf ihre neue Position
-		setRobotLocation(xLength, yLength);
-		setSensorLocation(xLength, yLength);
+		moveRobotInDirection(xLength, yLength);
+		moveSensorInDirection(xLength, yLength);
 	}
 	
 	// TODO Testen, eventuell Exception Klasse anpassen
@@ -51,16 +55,24 @@ public class Robot {
 		
 		// Macht keinen Sinn sich im Kreis zu drehen
 		if (angle < -360 || angle > 360)
-			throw new Exception("Angle out of range");
+			throw new Exception("Exception: Angle out of range!");
 		
-		// Rotationsmatrix zur Berechnung der neuen x und y Werte in Abhängingkeit von der Roboterposition
-		double xNew = (sensorLocation.getX() - robotLocation.getX()) * Math.cos(angle) + (sensorLocation.getY() - robotLocation.getY()) * Math.sin(angle);
-		double yNew = -(sensorLocation.getX() - robotLocation.getX()) * Math.sin(angle) + (sensorLocation.getY() - robotLocation.getY()) * Math.cos(angle);
-
-		sensorLocation.setLocation(robotLocation.getX() + xNew, robotLocation.getY() + yNew);
+		// Transform into radiant value
+		double radiantAngle = (angle * Math.PI) / 180;
+				
+		double robotCenterX = robotLocation.getX() + robotSize.getWidth() / 2;
+		double robotCenterY = robotLocation.getY() + robotSize.getHeight() / 2;
+		
+		double sensorCenterX = sensorLocation.getX() + sensorSize.getWidth() / 2;
+		double sensorCenterY = sensorLocation.getY() + sensorSize.getHeight() / 2;
+		
+		double xNew = robotCenterX + (sensorCenterX - robotCenterX) * Math.cos(radiantAngle) - (sensorCenterY - robotCenterY) * Math.sin(radiantAngle);
+		double yNew = robotCenterY + (sensorCenterX - robotCenterX) * Math.sin(radiantAngle) + (sensorCenterY - robotCenterY) * Math.cos(radiantAngle);
+		
+		sensorLocation.setLocation(xNew - (sensorSize.getWidth() / 2), yNew - (sensorSize.getHeight() / 2));
 	}
 	
-	public void setRobotLocation(double xLength, double yLength) {
+	public void moveRobotInDirection(double xLength, double yLength) {
 		robotLocation.setLocation(robotLocation.getX() + xLength, robotLocation.getY() + yLength);
 	}
 	
@@ -68,7 +80,7 @@ public class Robot {
 		return robotLocation;
 	}
 	
-	public void setSensorLocation(double xLength, double yLength) {
+	public void moveSensorInDirection(double xLength, double yLength) {
 		sensorLocation.setLocation(sensorLocation.getX() + xLength, sensorLocation.getY() + yLength);		
 	}
 	
