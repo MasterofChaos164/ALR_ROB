@@ -1,10 +1,10 @@
-package pj.specifiednetwork;
+package pj.robot;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 
-public class Robot {
+public class Robot_Simulation implements Robot{
 	
 	private Point robotLocation;
 	private Dimension robotSize;
@@ -17,7 +17,7 @@ public class Robot {
 	// Anzahl der Schritte pro Sekunde
 	private static final int speed = 5;
 	
-	public void initializeRobot() {
+	public Robot_Simulation() {
 
 		robotSize = new Dimension(20,20);
 		robotLocation = new Point(20,20);
@@ -28,8 +28,8 @@ public class Robot {
 		sensorColor = Color.BLUE;
 	}
 	
-	// TODO Testen
-	public void moveRobot(int ms) throws Exception{
+	@Override
+	public void moveRobotForMS(int ms) throws Exception {
 		
 		if (ms < 0)
 			throw new Exception("Exception: Only positive values allowed!");
@@ -50,7 +50,6 @@ public class Robot {
 		moveSensorInDirection(xLength, yLength);
 	}
 	
-	// TODO Testen, eventuell Exception Klasse anpassen
 	public void rotateRobot(double angle) throws Exception {
 		
 		// Macht keinen Sinn sich im Kreis zu drehen

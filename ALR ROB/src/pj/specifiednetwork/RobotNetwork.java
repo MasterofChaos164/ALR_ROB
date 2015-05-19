@@ -4,17 +4,18 @@ import java.awt.Point;
 import java.util.Vector;
 
 import pj.neuralnetwork.Network;
+import pj.robot.Robot_Simulation;
 import pj.ui.RobotUI;
 
 public class RobotNetwork {
 	public Main main;
 	public Network net;
-	private Robot robot;
+	private Robot_Simulation robot;
 	public RobotUI robotUI;
 	
 	public RobotNetwork(Main main) {
 		this.main = main;
-		robot = new Robot();
+		robot = new Robot_Simulation();
 		robotUI = new RobotUI(main, robot);
 	}
 	
@@ -31,7 +32,7 @@ public class RobotNetwork {
 			//TODO: Merke Zeit
 
 			try {
-				robot.moveRobot(100);
+				robot.moveRobotForMS(100);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -1,10 +1,5 @@
 package pj.specifiednetwork;
-import java.util.Vector;
-
 import pj.generator.TrainingSets;
-import pj.neuralnetwork.Network;
-import pj.ui.RobotUI;
-import pj.ui.TwoBoxesUI;
 
 public class Main {
 	public TrainingSets trainingSets;

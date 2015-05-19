@@ -1,12 +1,11 @@
 package pj.generator;
 
 import java.awt.image.BufferedImage;
-import java.awt.image.Raster;
+import java.awt.image.DataBufferByte;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.awt.image.DataBufferByte;
 
 import javax.imageio.ImageIO;
 

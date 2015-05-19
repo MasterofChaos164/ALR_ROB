@@ -7,8 +7,8 @@ import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import pj.robot.Robot_Simulation;
 import pj.specifiednetwork.Main;
-import pj.specifiednetwork.Robot;
 
 public class RobotUI extends JPanel{
 //	private Main main;
@@ -18,9 +18,9 @@ public class RobotUI extends JPanel{
 	private int frame_height;
 	private JFrame frame;
 	
-	private Robot robot;
+	private Robot_Simulation robot;
 	
-	public RobotUI(Main main, Robot robot) {
+	public RobotUI(Main main, Robot_Simulation robot) {
 //		this.main = main;
 		this.robot = robot;
 		this.image = main.trainingSets.robotPathImage;
@@ -40,7 +40,7 @@ public class RobotUI extends JPanel{
 				
 		this.setBackground(Color.cyan);
 		
-		robot.initializeRobot();
+//		robot.start();
 	}
 	
 	public void paintComponent(Graphics g) {

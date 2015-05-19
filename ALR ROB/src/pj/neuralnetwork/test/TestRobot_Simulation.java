@@ -9,16 +9,15 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import pj.specifiednetwork.Robot;
+import pj.robot.Robot_Simulation;
 
-public class TestRobot {
+public class TestRobot_Simulation {
 	
-	Robot robot;
+	Robot_Simulation robot;
 
 	@Before
 	public void setUp() throws Exception {
-		robot = new Robot();
-		robot.initializeRobot();
+		robot = new Robot_Simulation();
 	}
 
 	@After
@@ -34,7 +33,7 @@ public class TestRobot {
 		
 		// Move for 4 seconds
 		try {
-			robot.moveRobot(4000);
+			robot.moveRobotForMS(4000);
 		} catch (Exception e) {
 			e.getMessage();
 		}
@@ -43,7 +42,7 @@ public class TestRobot {
 		
 		// Don't move robot and check if location stays the same
 		try {
-			robot.moveRobot(0);
+			robot.moveRobotForMS(0);
 			assertEquals (new Point (40, 20), robot.getRobotLocation());
 			assertEquals (new Point (60, 27), robot.getSensorLocation());
 		} catch (Exception e) {
@@ -52,7 +51,7 @@ public class TestRobot {
 		
 		// Negative value should throw an exception
 		try {
-			robot.moveRobot(-1000);
+			robot.moveRobotForMS(-1000);
 		} catch (Exception e) {
 			e.getMessage();
 			assertEquals (new Point(40, 20), robot.getRobotLocation());
