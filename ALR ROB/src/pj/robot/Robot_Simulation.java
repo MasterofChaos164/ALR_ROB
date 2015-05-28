@@ -24,7 +24,7 @@ public class Robot_Simulation implements Robot{
 		robotColor = Color.GREEN;
 		
 		sensorSize = new Dimension(6, 6);
-		sensorLocation = new Point(robotLocation.x + robotSize.width, robotLocation.y + (robotSize.height / 2) - (sensorSize.height / 2));
+		sensorLocation = new Point(robotLocation.x + 15 /* TODO */, robotLocation.y + 15 /*(robotSize.height / 2) - (sensorSize.height / 2)*/);
 		sensorColor = Color.BLUE;
 	}
 	

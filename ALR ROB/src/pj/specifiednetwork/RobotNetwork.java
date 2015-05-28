@@ -19,6 +19,18 @@ public class RobotNetwork {
 		robotUI = new RobotUI(main, robot);
 	}
 	
+	public void start() throws Exception {
+
+		int counter = 0;
+
+		for (int i = 0; i < 10; i++) {
+			while (robotUI.isOnLine(robot.getRobotLocation().x,	robot.getRobotLocation().y) == false) {
+				robot.moveRobotForMS(2000);
+				counter++;
+			}
+		}
+	}
+	
 	public void trainRobot() {
 		Point robotLocation = new Point();
 		Vector<Integer> topology = new Vector<Integer>();

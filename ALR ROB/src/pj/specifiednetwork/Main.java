@@ -21,6 +21,11 @@ public class Main {
 //		main.exOrNetwork.testExOr();
 //		main.twoBoxesNetwork.trainTwoBoxes();
 //		main.twoBoxesNetwork.testTwoBoxes();
-		main.robotNetwork.trainRobot();
+//		main.robotNetwork.trainRobot();
+		try {
+			main.robotNetwork.start();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

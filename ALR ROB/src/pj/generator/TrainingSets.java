@@ -12,7 +12,7 @@ public class TrainingSets {
 	public BufferedImage twoBoxesImage;
 	public int[][] twoBoxesRGBSet;
 	
-	public static final String robotPath = "roboterweg.png";
+	public static final String robotPath = "RoboterLinie.png";
 	public BufferedImage robotPathImage;
 	public int[][] robotPathRGBSet;
 	

@@ -13,7 +13,6 @@ import pj.specifiednetwork.Main;
 public class RobotUI extends JPanel{
 //	private Main main;
 	private BufferedImage image; // Is the background Image of the frame
-	private int[][] imageRGB;
 	private int frame_width;
 	private int frame_height;
 	private JFrame frame;
@@ -24,7 +23,6 @@ public class RobotUI extends JPanel{
 //		this.main = main;
 		this.robot = robot;
 		this.image = main.trainingSets.robotPathImage;
-		this.imageRGB = main.trainingSets.robotPathRGBSet;
 		this.frame_width = this.image.getWidth();
 		this.frame_height = this.image.getHeight();
 		
@@ -41,6 +39,12 @@ public class RobotUI extends JPanel{
 		this.setBackground(Color.cyan);
 		
 //		robot.start();
+	}
+	
+	public boolean isOnLine(int x, int y) {
+		if(new Color(image.getRGB(x, y), true) == Color.BLACK)
+			return true;		
+		return false;
 	}
 	
 	public void paintComponent(Graphics g) {
