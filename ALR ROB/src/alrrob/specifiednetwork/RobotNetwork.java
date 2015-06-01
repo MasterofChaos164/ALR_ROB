@@ -1,11 +1,11 @@
-package pj.specifiednetwork;
+package alrrob.specifiednetwork;
 
 import java.awt.Point;
 import java.util.Vector;
 
-import pj.neuralnetwork.Network;
-import pj.robot.Robot_Simulation;
-import pj.ui.RobotUI;
+import alrrob.neuralnetwork.Network;
+import alrrob.robot.Robot_Simulation;
+import alrrob.ui.RobotUI;
 
 public class RobotNetwork {
 	public Main main;

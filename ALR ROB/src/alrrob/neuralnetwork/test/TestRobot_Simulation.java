@@ -1,4 +1,4 @@
-package pj.neuralnetwork.test;
+package alrrob.neuralnetwork.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;

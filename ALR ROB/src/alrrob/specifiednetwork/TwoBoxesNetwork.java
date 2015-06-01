@@ -1,11 +1,11 @@
-package pj.specifiednetwork;
+package alrrob.specifiednetwork;
 
 import java.awt.image.BufferedImage;
 import java.util.Vector;
 
-import pj.generator.ImageAdapter;
-import pj.neuralnetwork.Network;
-import pj.ui.TwoBoxesUI;
+import alrrob.generator.ImageAdapter;
+import alrrob.neuralnetwork.Network;
+import alrrob.ui.TwoBoxesUI;
 
 public class TwoBoxesNetwork {
 	public Main main;

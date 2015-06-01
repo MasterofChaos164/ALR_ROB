@@ -1,4 +1,4 @@
-package pj.neuralnetwork;
+package alrrob.neuralnetwork;
 import java.util.Vector;
 
 public class Neuron {

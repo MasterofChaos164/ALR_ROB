@@ -1,5 +1,5 @@
-package pj.specifiednetwork;
-import pj.generator.TrainingSets;
+package alrrob.specifiednetwork;
+import alrrob.generator.TrainingSets;
 
 public class Main {
 	public TrainingSets trainingSets;

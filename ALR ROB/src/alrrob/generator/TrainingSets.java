@@ -1,4 +1,4 @@
-package pj.generator;
+package alrrob.generator;
 
 import java.awt.image.BufferedImage;
 

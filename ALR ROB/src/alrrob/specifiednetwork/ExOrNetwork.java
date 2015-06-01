@@ -1,9 +1,9 @@
-package pj.specifiednetwork;
+package alrrob.specifiednetwork;
 
 import java.util.Scanner;
 import java.util.Vector;
 
-import pj.neuralnetwork.Network;
+import alrrob.neuralnetwork.Network;
 
 public class ExOrNetwork {
 	public Main main;

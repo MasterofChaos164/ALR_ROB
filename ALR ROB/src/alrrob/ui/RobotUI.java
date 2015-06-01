@@ -1,4 +1,4 @@
-package pj.ui;
+package alrrob.ui;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -7,8 +7,8 @@ import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import pj.robot.Robot_Simulation;
-import pj.specifiednetwork.Main;
+import alrrob.robot.Robot_Simulation;
+import alrrob.specifiednetwork.Main;
 
 public class RobotUI extends JPanel{
 //	private Main main;

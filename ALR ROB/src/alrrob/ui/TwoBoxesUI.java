@@ -1,4 +1,4 @@
-package pj.ui;
+package alrrob.ui;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import pj.specifiednetwork.Main;
+import alrrob.specifiednetwork.Main;
 
 public class TwoBoxesUI extends JPanel {
 	public Main main;

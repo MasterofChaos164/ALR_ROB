@@ -1,4 +1,4 @@
-package pj.neuralnetwork;
+package alrrob.neuralnetwork;
 public class Connection {
 	private double weight;
 	private double deltaWeight;
